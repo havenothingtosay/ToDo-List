@@ -1,0 +1,24 @@
+<div class="top">
+  <p class="date">{{ today | date:'yyyy-MM-dd' }}</p>
+  <p class="quantity">还有{{ list.length }}项任务</p>
+</div>
+
+<div>
+  <div class="title">
+    <h1>待办事项</h1>
+    <div class="addButton" (click)="showNew=true;">
+      <span class="iconfont">&#xe61a;</span>
+    </div>
+  </div>
+  <div *ngIf="showNew">
+    <input class="new" type="text" name="newItem" placeholder="新事项" [(ngModel)]="newItem" (keyup.enter)="add()" />
+  </div>
+  <div class="item" *ngFor="let item of list;index as i">
+    <div *ngIf="!item.complete;else elseblock" class="iconfont checkbox" (click)="changeComplete(item)">&#xe75c;</div>
+    <ng-template #elseblock>
+      <div class="checked iconfont" (click)="changeComplete(item)">&#xe639;</div>
+    </ng-template>
+    <label class="content" [ngClass]="{'complete':item.complete}">{{ item.content }}</label>
+    <span class="del iconfont" (click)="del(i)">&#xe617;</span>
+  </div>
+</div>
