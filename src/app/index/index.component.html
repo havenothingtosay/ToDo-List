@@ -16,7 +16,7 @@
   <div class="item" *ngFor="let item of list;index as i">
     <span *ngIf="!item.complete;else elseblock" class="iconfont checkbox" (click)="changeComplete(item)">&#xe75c;</span>
     <ng-template #elseblock>
-      <div class="checked iconfont" (click)="changeComplete(item)">&#xe639;</div>
+      <span class="checked iconfont" (click)="changeComplete(item)">&#xe75e;</span>
     </ng-template>
     <span class="del iconfont" (click)="del(i)">&#xe617;</span>
     <label class="content" [ngClass]="{'complete':item.complete}">{{ item.content }}</label>
