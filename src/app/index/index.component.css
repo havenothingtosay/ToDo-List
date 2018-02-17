@@ -27,13 +27,6 @@ h1{
     height: 27px;
     cursor: pointer;
 }
-.addIcon{   /*buyong*/
-    color: white;
-    font-size: 35px;
-    position: absolute;
-    left: 8%;
-    top: -52%;
-}
 .addButton .iconfont{
     color: white;
     font-size: 22px;
@@ -52,38 +45,34 @@ h1{
 
 
 .item{
-    position: relative;
     margin-top: 15px;
-    height: 24px;
 }
 .checkbox{
     font-size: 22px;
-    width: 21px;
     color: lightgray;
-    position: absolute;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
 }
-.item .checked{
+.checked{
     color: darkgray;
     font-size: 25px;
-    width: 20px;
-    position: absolute;
+    float: left;
+    margin-right: 7px;
+    position: relative;
     top: -3px;
+    cursor: pointer;
 }
 .content{
-    position: absolute;
-    /*top: -2px;*/
-    left: 35px;
-    width: 335px;
-}
-.del{
-    position: absolute;
-    right: 0;
-    /*top: -2px;*/
-    font-size: 22px;
-    color: lightgray;
-    cursor: pointer;
 }
 .complete{
     color: lightgray;
     text-decoration: line-through lightgray solid;
+}
+.del{
+    font-size: 22px;
+    color: lightgray;
+    cursor: pointer;
+    float: right;
+    margin-left: 5px;
 }

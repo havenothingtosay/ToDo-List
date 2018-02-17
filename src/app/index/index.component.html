@@ -14,11 +14,11 @@
     <input class="new" type="text" name="newItem" placeholder="新事项" [(ngModel)]="newItem" (keyup.enter)="add()" />
   </div>
   <div class="item" *ngFor="let item of list;index as i">
-    <div *ngIf="!item.complete;else elseblock" class="iconfont checkbox" (click)="changeComplete(item)">&#xe75c;</div>
+    <span *ngIf="!item.complete;else elseblock" class="iconfont checkbox" (click)="changeComplete(item)">&#xe75c;</span>
     <ng-template #elseblock>
       <div class="checked iconfont" (click)="changeComplete(item)">&#xe639;</div>
     </ng-template>
-    <label class="content" [ngClass]="{'complete':item.complete}">{{ item.content }}</label>
     <span class="del iconfont" (click)="del(i)">&#xe617;</span>
+    <label class="content" [ngClass]="{'complete':item.complete}">{{ item.content }}</label>
   </div>
 </div>
