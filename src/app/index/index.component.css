@@ -46,13 +46,18 @@ h1{
 
 .item{
     margin-top: 15px;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
 }
 .checkbox{
     font-size: 22px;
     color: lightgray;
-    float: left;
-    margin-right: 10px;
     cursor: pointer;
+    /*float: left;*/
+    /*margin-right: 10px;*/
+    flex-basis: 32px;
 }
 .checked{
     color: darkgray;
@@ -64,6 +69,7 @@ h1{
     cursor: pointer;
 }
 .content{
+    flex-grow: 1;
 }
 .complete{
     color: lightgray;
@@ -73,6 +79,7 @@ h1{
     font-size: 22px;
     color: lightgray;
     cursor: pointer;
-    float: right;
-    margin-left: 5px;
+    /*float: right;*/
+    /*margin-left: 5px;*/
+    order: 1;
 }
