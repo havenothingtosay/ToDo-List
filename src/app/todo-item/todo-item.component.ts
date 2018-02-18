@@ -12,6 +12,7 @@ export class TodoItemComponent implements OnInit {
   @Output() delEvent = new EventEmitter();
 
   editable: boolean = false;
+  click: number = 0;  // 判断点击次数
 
   constructor() { }
 
@@ -24,6 +25,19 @@ export class TodoItemComponent implements OnInit {
   del(i) {
     this.delEvent.emit(this.i);
   }
+  // 判断双击事件
+  caseClick() {
+    this.click++;
+    if (this.click > 1) {
+      this.edit();
+      this.click = 0;
+    }else {
+      setTimeout(() => {
+        this.click = 0;
+      }, 300);
+    }
+  }
+  // 改成可编辑状态
   edit() {
     this.editable = true;
     this.item.complete = false;

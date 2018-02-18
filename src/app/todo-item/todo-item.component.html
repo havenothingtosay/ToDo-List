@@ -6,7 +6,7 @@
 
   <span class="del iconfont" (click)="del(i)">&#xe617;</span>
 
-  <label *ngIf="!editable;else editblock" class="content" [ngClass]="{'complete':item.complete}" (click)="edit()">{{ item.content }}</label>
+  <label *ngIf="!editable;else editblock" class="content" [ngClass]="{'complete':item.complete}" (click)="caseClick()">{{ item.content }}</label>
   <ng-template #editblock>
     <input class="content editable" [(ngModel)]="item.content" (keyup.enter)="saveEdit()" />
   </ng-template>
