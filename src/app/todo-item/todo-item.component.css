@@ -1,0 +1,47 @@
+.item{
+    margin-top: 15px;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+}
+.checkbox{
+    font-size: 22px;
+    color: lightgray;
+    cursor: pointer;
+    /*float: left;*/
+    /*margin-right: 10px;*/
+    /*flex-basis: 32px;*/   /*多行文字的这个icon所占地方会变小，不是32*/
+    margin-right: 10px;
+}
+.checked{
+    color: darkgray;
+    font-size: 22px;
+    cursor: pointer;
+    /*float: left;*/
+    /*margin-right: 7px;*/
+    /*position: relative;*/
+    /*top: -3px;*/
+    /*flex-basis: 32px;*/
+    margin-right: 8px;
+}
+.content{
+    flex-grow: 1;
+}
+.editable{
+    border-radius: 5px;
+    padding: 0 7px;
+}
+.complete{
+    color: lightgray;
+    text-decoration: line-through lightgray solid;
+}
+.del{
+    font-size: 22px;
+    color: lightgray;
+    cursor: pointer;
+    /*float: right;*/
+    /*margin-left: 5px;*/
+    order: 1;
+    margin-left: 10px;
+}

@@ -1,0 +1,13 @@
+<div class="item">
+  <span *ngIf="!item.complete;else elseblock" class="iconfont checkbox" (click)="changeComplete(item)">&#xe75c;</span>
+  <ng-template #elseblock>
+    <span class="checked iconfont" (click)="changeComplete(item)">&#xe75e;</span>
+  </ng-template>
+
+  <span class="del iconfont" (click)="del(i)">&#xe617;</span>
+
+  <label *ngIf="!editable;else editblock" class="content" [ngClass]="{'complete':item.complete}" (click)="edit()">{{ item.content }}</label>
+  <ng-template #editblock>
+    <input class="content editable" [(ngModel)]="item.content" (keyup.enter)="saveEdit()" />
+  </ng-template>
+</div>

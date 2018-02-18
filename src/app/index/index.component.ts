@@ -10,8 +10,6 @@ export class IndexComponent implements OnInit {
   newItem: string = '';
   today: Date = new Date();
 
-  // todoList: Array<Item> = [];
-  // doneList: Item[] = [];
   list: Item[] = [];
 
   constructor() { }
@@ -21,15 +19,9 @@ export class IndexComponent implements OnInit {
 
   add() {
     console.log(this.newItem);
-    // this.todoList.push(new Item(this.newItem));
     this.list.push(new Item(this.newItem));
     this.newItem = '';
     this.showNew = false;
-  }
-  changeComplete(item: Item) {
-    console.log(item);
-    item.complete = !item.complete;
-    // this.doneList.push(item);
   }
   del(index: number) {
     this.list.splice(index, 1);
