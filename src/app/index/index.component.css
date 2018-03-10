@@ -37,8 +37,18 @@ h1{
 
 
 .new{
-    width: 380px;
+    display: flex;
+    justify-content: space-between;
+}
+.newContent{
+    width: 310px;
     height: 30px;
     padding: 0 10px;
     border-radius: 7px;
+}
+.newCycle{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 30px;
+    width: 74px;
 }

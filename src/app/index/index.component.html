@@ -10,8 +10,14 @@
       <span class="iconfont">&#xe61a;</span>
     </div>
   </div>
-  <div *ngIf="showNew">
-    <input class="new" type="text" name="newItem" placeholder="新事项" [(ngModel)]="newItem" (keyup.enter)="add()" />
+  <div class="new" *ngIf="showNew">
+    <input class="newContent" type="text" name="newContent" placeholder="新事项" [(ngModel)]="newItem.content" (keyup.enter)="add()" />
+    <select class="newCycle" name="newCycle" [(ngModel)]="newItem.cycle">
+      <option value="1">一次</option>
+      <option value="2">每日</option>
+      <option value="3">每周</option>
+      <option value="4">每月</option>
+    </select>
   </div>
   <todo-item *ngFor="let item of list;index as i" [item]="item" [i]="i" (delEvent)="del($event)"></todo-item>
 </div>
