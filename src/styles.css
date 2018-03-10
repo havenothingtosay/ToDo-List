@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
 }
 body{
-    width: 400px;
+    width: 425px;
     padding-top: 15px;
     padding-left: 25px;
 
