@@ -14,6 +14,8 @@ export class TodoItemComponent implements OnInit {
   editable: boolean = false;
   click: number = 0;  // 判断点击次数
 
+  cycleDefine= ['一次', '每日', '每周', '每月'];
+
   constructor() { }
 
   ngOnInit() {

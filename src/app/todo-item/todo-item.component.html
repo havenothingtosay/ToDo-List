@@ -4,10 +4,13 @@
     <span class="checked iconfont" (click)="changeComplete(item)">&#xe75e;</span>
   </ng-template>
 
-  <span class="del iconfont" (click)="del(i)">&#xe617;</span>
 
   <label *ngIf="!editable;else editblock" class="content" [ngClass]="{'complete':item.complete}" (click)="caseClick()">{{ item.content }}</label>
   <ng-template #editblock>
-    <input class="content editable" [(ngModel)]="item.content" (keyup.enter)="saveEdit()" />
+    <input class="content editable" [(ngModel)]="item.content" (keyup.enter)="saveEdit()" (blur)="saveEdit()" />
   </ng-template>
+
+  <span *ngIf="item.cycle!=1" class="cycle">{{ cycleDefine[item.cycle-1] }}</span>
+
+  <span class="del iconfont" (click)="del(i)">&#xe617;</span>
 </div>

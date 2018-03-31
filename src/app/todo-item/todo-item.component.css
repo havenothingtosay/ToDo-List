@@ -36,12 +36,15 @@
     color: lightgray;
     text-decoration: line-through lightgray solid;
 }
+.cycle{
+    margin-left: 10px;
+}
 .del{
     font-size: 22px;
     color: lightgray;
     cursor: pointer;
     /*float: right;*/
     /*margin-left: 5px;*/
-    order: 1;
+    /*order: 1;*/
     margin-left: 10px;
 }
