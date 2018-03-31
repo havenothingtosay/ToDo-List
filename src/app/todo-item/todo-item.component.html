@@ -1,16 +1,21 @@
-<div class="item">
-  <span *ngIf="!item.complete;else elseblock" class="iconfont checkbox" (click)="changeComplete(item)">&#xe75c;</span>
-  <ng-template #elseblock>
-    <span class="checked iconfont" (click)="changeComplete(item)">&#xe75e;</span>
-  </ng-template>
+<div class="item" (click)="changeComplete(222)">
 
+  <!--<span *ngIf="!item.complete;else elseblock" class="iconfont checkbox" (click)="changeComplete(item)">&#xe75c;</span>-->
+  <!--<ng-template #elseblock>-->
+    <!--<span class="checked iconfont" (click)="changeComplete(item)">&#xe75e;</span>-->
+  <!--</ng-template>-->
 
-  <label *ngIf="!editable;else editblock" class="content" [ngClass]="{'complete':item.complete}" (click)="caseClick()">{{ item.content }}</label>
-  <ng-template #editblock>
-    <input class="content editable" [(ngModel)]="item.content" (keyup.enter)="saveEdit()" (blur)="saveEdit()" />
-  </ng-template>
+  <label class="content" [ngClass]="{'complete':item.complete}">
 
-  <span *ngIf="item.cycle!=1" class="cycle">{{ cycleDefine[item.cycle-1] }}</span>
+    <span class="detail" *ngIf="!editable;else editblock" (click)="caseClick($event)">{{ item.content }}</span>
+    <ng-template #editblock>
+      <input class="detail editable" [(ngModel)]="item.content" (keyup.enter)="saveEdit()" (blur)="saveEdit()" />
+    </ng-template>
+
+    <span *ngIf="item.cycle!=1" class="cycle">{{ cycleDefine[item.cycle-1] }}</span>
+
+  </label>
 
   <span class="del iconfont" (click)="del(i)">&#xe617;</span>
+
 </div>

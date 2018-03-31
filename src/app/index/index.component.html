@@ -1,23 +1,29 @@
-<div class="top">
-  <p class="date">{{ today | date:'yyyy-MM-dd' }}</p>
-  <p class="quantity">还有{{ list.length }}项任务</p>
-</div>
+<div class="main">
 
-<div>
   <div class="title">
-    <h1>待办事项</h1>
-    <div class="addButton" (click)="showNew=true;">
-      <span class="iconfont">&#xe61a;</span>
+    <h1>Todo List</h1>
+    <!--<div class="addButton" (click)="showNew=true;">-->
+      <!--<span class="iconfont">&#xe61a;</span>-->
+    <!--</div>-->
+    <div class="top">
+      <span class="date">{{ today | date:'yyyy-MM-dd' }}</span>
+      <span class="quantity">还有{{ list.length }}项任务</span>
     </div>
   </div>
+
   <div class="new" *ngIf="showNew">
-    <input class="newContent" type="text" name="newContent" placeholder="新事项" [(ngModel)]="newItem.content" (keyup.enter)="add()" />
+    <input class="newContent" type="text" name="newContent" placeholder="new" [(ngModel)]="newItem.content" />
     <select class="newCycle" name="newCycle" [(ngModel)]="newItem.cycle">
       <option value="1">一次</option>
       <option value="2">每日</option>
       <option value="3">每周</option>
       <option value="4">每月</option>
     </select>
+    <button class="newButton" (click)="add()">ADD</button>
   </div>
-  <todo-item *ngFor="let item of list;index as i" [item]="item" [i]="i" (delEvent)="del($event)"></todo-item>
+
+  <div class="list">
+    <todo-item *ngFor="let item of list;index as i" [item]="item" [i]="i" (delEvent)="del($event)"></todo-item>
+  </div>
+
 </div>

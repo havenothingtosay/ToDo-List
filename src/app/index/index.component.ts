@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  showNew: boolean = false;
+  showNew: boolean = true;
   newItem: object = {
     content: '',
     cycle: 1
@@ -40,7 +40,7 @@ export class IndexComponent implements OnInit {
     console.log(this.newItem);
     this.list.push(new Item(this.newItem));
     this.newItem = {content: '', cycle: 1};
-    this.showNew = false;
+    // this.showNew = false;
   }
   del(index: number) {
     this.list.splice(index, 1);

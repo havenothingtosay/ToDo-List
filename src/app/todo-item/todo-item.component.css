@@ -1,13 +1,17 @@
 .item{
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     display: -webkit-flex; /* Safari */
     display: flex;
-    /*justify-content: space-between;*/
-    /*align-items: center;*/
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    margin: 0 -3rem 4px;
+    padding: 1.1rem 3rem;
 }
+
+
 .checkbox{
     font-size: 22px;
-    color: lightgray;
+    /*color: lightgray;*/
     cursor: pointer;
     /*float: left;*/
     /*margin-right: 10px;*/
@@ -15,7 +19,7 @@
     margin-right: 10px;
 }
 .checked{
-    color: darkgray;
+    /*color: darkgray;*/
     font-size: 22px;
     cursor: pointer;
     /*float: left;*/
@@ -25,26 +29,47 @@
     /*flex-basis: 32px;*/
     margin-right: 8px;
 }
+
+
 .content{
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+}
+.detail{
     flex-grow: 1;
 }
 .editable{
-    border-radius: 5px;
-    padding: 0 7px;
+    /*border-radius: 5px;*/
+    /*padding: 0 7px;*/
+    padding: 0 0.5rem;
+    height: 1.5rem;
 }
 .complete{
-    color: lightgray;
-    text-decoration: line-through lightgray solid;
+    /*color: lightgray;*/
+    /*text-decoration: line-through lightgray solid;*/
+    opacity: .6;
+}
+.complete::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -.5rem;
+    display: block;
+    width: 0%;
+    height: 1px;
+    background: #FFF;
+    animation:strikeitem .3s ease-out 0s forwards;
+}
+@keyframes strikeitem {
+    to { width:calc(100% + 1rem); }
 }
 .cycle{
     margin-left: 10px;
 }
 .del{
     font-size: 22px;
-    color: lightgray;
+    /*color: lightgray;*/
     cursor: pointer;
-    /*float: right;*/
-    /*margin-left: 5px;*/
-    /*order: 1;*/
     margin-left: 10px;
 }
