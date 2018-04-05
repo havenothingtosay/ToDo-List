@@ -21,15 +21,12 @@
     <!--</select>-->
     <div class="customSelect">
       <div class="showSelect" (click)="showOption=!showOption">
-        <span class="contentSelect">{{ cycleName }}</span>
+        <span class="contentSelect">{{ cycleDefine[newItem.cycle-1] }}</span>
         <span class="iconSelect"></span>
         <input hidden name="newCycle" [(ngModel)]="newItem.cycle">
       </div>
       <ul class="optionList" tabindex="-1" *ngIf="showOption">
-        <li value="1" (click)="changeSelect(1,'一次')">一次</li>
-        <li value="2" (click)="changeSelect(2,'每日')">每日</li>
-        <li value="3" (click)="changeSelect(3,'每周')">每周</li>
-        <li value="4" (click)="changeSelect(4,'每月')">每月</li>
+        <li *ngFor="let c of cycleDefine; index as i" value='{{ i+1 }}' (click)="changeSelect(i+1)">{{ c }}</li>
       </ul>
       <div class="cover" *ngIf="showOption" (click)="showOption=false"></div>
     </div>

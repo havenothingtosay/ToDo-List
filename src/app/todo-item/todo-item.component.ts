@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Config} from '../app.config';
 
 @Component({
   selector: 'todo-item',
@@ -14,7 +15,8 @@ export class TodoItemComponent implements OnInit {
   editable: boolean = false;
   click: number = 0;  // 判断点击次数
 
-  cycleDefine= ['一次', '每日', '每周', '每月'];
+  // cycleDefine= ['一次', '每日', '每周', '每月'];
+  cycleDefine = Config.cycleDefine;
 
   constructor() { }
 
