@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Config} from '../app.config';
+import {Config, Item} from '../app.config';
 
 @Component({
   selector: 'app-index',
@@ -74,15 +74,5 @@ export class IndexComponent implements OnInit {
   // 删除项目
   del(index: number) {
     this.list.splice(index, 1);
-  }
-}
-class Item {
-  content: string;
-  complete: boolean;
-  cycle: number;
-  constructor(newItem) {
-    this.content = newItem.content;
-    this.complete = false;
-    this.cycle = newItem.cycle ? newItem.cycle : 1; // 1：一次，2：每日，3：每周，4：每月
   }
 }
