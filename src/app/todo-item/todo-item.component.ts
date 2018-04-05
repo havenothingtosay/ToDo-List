@@ -20,31 +20,26 @@ export class TodoItemComponent implements OnInit {
 
   ngOnInit() {
   }
-  changeComplete(tmp=111) {
-    console.log('改变edit'+tmp);
+  // 改变完成状态
+  changeComplete() {
       this.item.complete = !this.item.complete;
       this.editable = false;
   }
+  // 删除项目
   del(i) {
     this.delEvent.emit(this.i);
   }
   // 判断双击事件
   caseClick(event) {
-    console.log('阻止冒泡');
-    event.stopPropagation();
+    // console.log('阻止冒泡');
+    // event.stopPropagation();
     this.click++;
-    console.log(this.click);
     if (this.click > 1) {
-      console.log('双击');
       this.edit();
       this.click = 0;
-      console.log('清空');
     }else {
-      console.log('开始计时');
       setTimeout(() => {
-        console.log('计时结束');
         if (this.click === 1) {
-          console.log('单击');
           this.changeComplete();
         }
         this.click = 0;
@@ -56,6 +51,7 @@ export class TodoItemComponent implements OnInit {
     this.editable = true;
     this.item.complete = false;
   }
+  // 保存编辑
   saveEdit() {
     this.editable = false;
   }

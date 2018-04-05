@@ -7,18 +7,32 @@
     <!--</div>-->
     <div class="top">
       <span class="date">{{ today | date:'yyyy-MM-dd' }}</span>
-      <span class="quantity">还有{{ list.length }}项任务</span>
+      <span class="quantity">还有{{ uncompleteLength() }}项任务</span>
     </div>
   </div>
 
   <div class="new" *ngIf="showNew">
-    <input class="newContent" type="text" name="newContent" placeholder="new" [(ngModel)]="newItem.content" />
-    <select class="newCycle" name="newCycle" [(ngModel)]="newItem.cycle">
-      <option value="1">一次</option>
-      <option value="2">每日</option>
-      <option value="3">每周</option>
-      <option value="4">每月</option>
-    </select>
+    <input #newContent class="newContent" type="text" name="newContent" placeholder="new" [(ngModel)]="newItem.content" />
+    <!--<select class="newCycle" name="newCycle" [(ngModel)]="newItem.cycle">-->
+      <!--<option value="1">一次</option>-->
+      <!--<option value="2">每日</option>-->
+      <!--<option value="3">每周</option>-->
+      <!--<option value="4">每月</option>-->
+    <!--</select>-->
+    <div class="customSelect">
+      <div class="showSelect" (click)="showOption=!showOption">
+        <span class="contentSelect">{{ cycleName }}</span>
+        <span class="iconSelect"></span>
+        <input hidden name="newCycle" [(ngModel)]="newItem.cycle">
+      </div>
+      <ul class="optionList" tabindex="-1" *ngIf="showOption">
+        <li value="1" (click)="changeSelect(1,'一次')">一次</li>
+        <li value="2" (click)="changeSelect(2,'每日')">每日</li>
+        <li value="3" (click)="changeSelect(3,'每周')">每周</li>
+        <li value="4" (click)="changeSelect(4,'每月')">每月</li>
+      </ul>
+      <div class="cover" *ngIf="showOption" (click)="showOption=false"></div>
+    </div>
     <button class="newButton" (click)="add()">ADD</button>
   </div>
 
