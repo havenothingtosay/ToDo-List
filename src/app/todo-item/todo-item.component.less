@@ -1,0 +1,56 @@
+@mainColor:#FF6666;
+@fontColor:white;
+@line:rgba(255,255,255,.3);
+@inputBackground:#f7f1f1;
+
+
+.item{
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  margin: 0 -3rem 4px;
+  padding: 1.1rem 3rem;
+
+  .content{
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+
+    .detail{
+      flex-grow: 1;
+    }
+    .editable{
+      padding: 0 0.5rem;
+      height: 1.5rem;
+    }
+
+    .cycle{
+      margin-left: 10px;
+    }
+  }
+  .complete{
+    opacity: .6;
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -.5rem;
+      display: block;
+      width: 0%;
+      height: 1px;
+      background: #FFF;
+      animation:strikeitem .3s ease-out 0s forwards;
+    }
+  }
+
+  .del{
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}
+
+@keyframes strikeitem {
+  to { width:calc(100% + 1rem); }
+}

@@ -4,7 +4,7 @@ import {Config} from '../app.config';
 @Component({
   selector: 'todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.css']
+  styleUrls: ['./todo-item.component.less']
 })
 export class TodoItemComponent implements OnInit {
   @Input() item;
