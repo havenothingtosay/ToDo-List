@@ -33,8 +33,19 @@
     <button class="newButton" (click)="add()">ADD</button>
   </div>
 
+  <div class="settingList">
+    <div class="settingItem">
+      <span class="settingInfo">Remove done items?</span>
+      <span class="settingButton" [ngClass]="{'checked':setting.remove}" (click)="setRemove()"></span>
+    </div>
+    <div class="settingItem" *ngIf="!setting.remove">
+      <span class="settingInfo">Move done items at the end?</span>
+      <span class="settingButton" [ngClass]="{'checked':setting.move}" (click)="setMove()"></span>
+    </div>
+  </div>
+
   <div class="list">
-    <todo-item *ngFor="let item of list;index as i" [item]="item" [i]="i" (delEvent)="del($event)"></todo-item>
+    <todo-item *ngFor="let item of list;index as i" [item]="item" [i]="i" (delEvent)="del($event)" (completeEvent)="changeComplete($event)"></todo-item>
   </div>
 
 </div>

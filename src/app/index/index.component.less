@@ -2,6 +2,8 @@
 @fontColor:white;
 @line:rgba(255,255,255,.3);
 @inputBackground:#f7f1f1;
+@letterSpace:.1em;
+@fontSize-small:.9rem;
 
 .main{
   width: 500px;
@@ -14,9 +16,9 @@
 
 
 .title{
-  position: relative;
+  //position: relative;
   border-bottom: 1px solid @line;
-  letter-spacing: 0.1em;
+  letter-spacing: @letterSpace;
 
   h1{
     font-size: 2rem;
@@ -24,7 +26,7 @@
   }
 
   .top{
-    font-size: 0.9rem;
+    font-size: @fontSize-small;
     font-weight: lighter;
     margin: 0.5rem 0 0.7rem 3px;
 
@@ -49,7 +51,7 @@
 
   .customSelect{
     color: #666;
-    font-size: .9rem;
+    font-size: @fontSize-small;
     margin-left: 5px;
     width: 70px;
     position: relative;
@@ -116,6 +118,51 @@
   }
 }
 
+.settingList{
+  margin-top: 1rem;
+  letter-spacing: @letterSpace;
+  font-size: @fontSize-small;
+
+  .settingItem{
+    display: flex;
+    justify-content: flex-end;
+    height: 2rem;
+    align-items: center;
+
+    @height: 20px;
+    .settingButton{
+      width: 36px;
+      height: @height;
+      background: @fontColor;
+      border-radius: @height / 2;
+      cursor: pointer;
+      margin-left: .6rem;
+      position: relative;
+
+      &::before{
+        content: '';
+        background: @mainColor;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        opacity: .7;
+        transition: all .2s ease-in-out;
+      }
+    }
+    .checked::before{
+      left: 18px;
+      opacity: 1;
+      //animation:strikeitemcheck .3s ease-out 0s alternate forwards;
+      //transform: translateX(16px);
+    }
+  }
+}
+//@keyframes strikeitemcheck {
+//  to { left:18px; opacity:1 }
+//}
 
 .list{
   margin-top: 2.3rem;

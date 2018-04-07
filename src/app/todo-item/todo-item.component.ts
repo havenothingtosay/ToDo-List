@@ -11,6 +11,7 @@ export class TodoItemComponent implements OnInit {
   @Input() i;
 
   @Output() delEvent = new EventEmitter();
+  @Output() completeEvent = new EventEmitter();
 
   editable: boolean = false;
   click: number = 0;  // 判断点击次数
@@ -23,10 +24,10 @@ export class TodoItemComponent implements OnInit {
   ngOnInit() {
   }
   // 改变完成状态
-  changeComplete() {
-      this.item.complete = !this.item.complete;
-      this.editable = false;
-  }
+  // changeComplete() {
+  //     this.item.complete = !this.item.complete;
+  //     this.editable = false;
+  // }
   // 删除项目
   del(i) {
     this.delEvent.emit(this.i);
@@ -42,7 +43,8 @@ export class TodoItemComponent implements OnInit {
     }else {
       setTimeout(() => {
         if (this.click === 1) {
-          this.changeComplete();
+          // this.changeComplete();
+            this.completeEvent.emit(this.item);
         }
         this.click = 0;
       }, 300);

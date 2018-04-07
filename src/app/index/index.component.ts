@@ -19,6 +19,10 @@ export class IndexComponent implements OnInit {
 
   today: Date = new Date();
 
+  setting = {
+    remove: false,
+    move: false
+  };
   list: Item[] = [
       {
         content: '一个一次性任务',
@@ -62,7 +66,11 @@ export class IndexComponent implements OnInit {
   add() {
     console.log(this.newItem);
     if (this.newItem['content']) {  // 检查内容是否为空
-        this.list.push(new Item(this.newItem));
+        if (this.setting.move) {
+          this.list.unshift(new Item(this.newItem));
+        }else {
+          this.list.push(new Item(this.newItem));
+        }
         this.newItem = {content: '', cycle: 1};
         // this.cycleName = this.cycleDefine[0];
         // this.showNew = false;
@@ -74,5 +82,44 @@ export class IndexComponent implements OnInit {
   // 删除项目
   del(index: number) {
     this.list.splice(index, 1);
+  }
+  // 改变完成状态
+  changeComplete(item) {
+    if (this.setting.remove) {  // 判断是否要移除完成项
+      this.list.splice(this.list.indexOf(item), 1);
+    }else {
+      item.complete = !item.complete;
+      if (this.setting.move) {  // 判断是否排序
+        this.list.splice(this.list.indexOf(item), 1);
+        if (item.complete) {  // 变成已完成
+          this.list.push(item);
+        }else {   // 变成未完成
+          this.list.unshift(item);
+        }
+      }
+    }
+  }
+
+  // 切换设置开关
+  setRemove() {
+    this.setting.remove = !this.setting.remove;
+    if (this.setting.remove) { // 如果是打开，删除已完成项目
+        this.list = this.list.filter(item => {
+            return !item.complete;
+        });
+    }
+  }
+  // 切换排序开关
+  setMove() {
+    this.setting.move = !this.setting.move;
+    if (this.setting.move) {  // 如果是打开，排序现有项目
+      this.list.sort((first, second) => {
+        if (first.complete && !second.complete) {
+          return 1;
+        }else {
+          return -1;
+        }
+      });
+    }
   }
 }
